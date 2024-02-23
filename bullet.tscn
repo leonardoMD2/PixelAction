@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmojemouy7btf"]
+
+[ext_resource type="Texture2D" uid="uid://cci83kgpj28ns" path="res://icon.svg" id="1_ac7ms"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_onvec"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vt1m6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s6w5"]
+radius = 60.3109
+
+[node name="bullet" type="Area2D"]
+scale = Vector2(0.548726, 0.44)
+script = ExtResource("1_onvec")
+speed = 350
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_vt1m6")
+texture = ExtResource("1_ac7ms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3s6w5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
