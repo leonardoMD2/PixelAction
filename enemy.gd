@@ -11,6 +11,7 @@ func _physics_process(delta):
 
 
 func take_dmg(damage):
+	
 	if(health > 0):
 		health -= damage
 	else:

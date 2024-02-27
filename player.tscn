@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7wubpwuk2d1"]
+[gd_scene load_steps=6 format=3 uid="uid://cd7wubpwuk2d1"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_sysu7"]
 [ext_resource type="Texture2D" uid="uid://cci83kgpj28ns" path="res://icon.svg" id="1_tp5yo"]
+[ext_resource type="PackedScene" uid="uid://dmojemouy7btf" path="res://bullet.tscn" id="2_jqkrx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckkym"]
 size = Vector2(123, 122)
@@ -11,6 +12,7 @@ size = Vector2(128, 127)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_sysu7")
+bullet = ExtResource("2_jqkrx")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-1, 0)

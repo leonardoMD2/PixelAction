@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var SPEED = 300.0
-@export var JUMP_VELOCITY = -400.0
+@export var damage = 25
 @export var bullet :PackedScene
 @onready var mark = $Marker2D
 
@@ -16,6 +16,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
+	print(position)
 	move_and_slide()
 
 
@@ -23,11 +24,12 @@ func shoot():
 	var new_bullet_scene = bullet.instantiate()
 	new_bullet_scene.global_position = mark.global_position
 	new_bullet_scene.global_rotation = mark.global_rotation
+	new_bullet_scene.damage = damage
 	get_parent().add_child(new_bullet_scene)
 	
 	
 func back_drop():
-	global_position -= Vector2(-10,-10) * 2
+	position -= Vector2(-20,-20) * 1.3
 	print("back")
 
 
